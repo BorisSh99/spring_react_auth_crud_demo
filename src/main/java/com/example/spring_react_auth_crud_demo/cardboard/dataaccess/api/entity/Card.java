@@ -18,16 +18,14 @@ public class Card {
     private String description;
     private Label label;
     private LocalDate dueDate;
-    private String assignedUser;
 
     public Card() {}
 
-    public Card(String title, String description, Label label, LocalDate dueDate, String assignedUser) {
+    public Card(String title, String description, Label label, LocalDate dueDate) {
         this.title = title;
         this.description = description;
         this.label = label;
         this.dueDate = dueDate;
-        this.assignedUser = assignedUser;
     }
 
     public Long getId() {
@@ -64,14 +62,6 @@ public class Card {
 
     public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
-    }
-
-    public String getAssignedUser() {
-        return assignedUser;
-    }
-
-    public void setAssignedUser(String assignedUser) {
-        this.assignedUser = assignedUser;
     }
 
     @Override
