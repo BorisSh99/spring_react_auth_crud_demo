@@ -2,7 +2,9 @@ package com.example.spring_react_auth_crud_demo.cardboard.logic.impl.usecase;
 
 import com.example.spring_react_auth_crud_demo.SpringReactAuthCrudDemoApplication;
 import com.example.spring_react_auth_crud_demo.cardboard.common.api.datatype.Label;
+import com.example.spring_react_auth_crud_demo.cardboard.common.api.exception.CardNotFoundException;
 import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.entity.Card;
+import com.example.spring_react_auth_crud_demo.cardboard.logic.api.usecase.CardUseCase;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,12 +15,13 @@ import java.time.LocalDate;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 @SpringBootTest(classes = SpringReactAuthCrudDemoApplication.class)
 class CardUseCaseImplTest {
 
     @Autowired
-    CardUseCaseImpl cardUseCase;  // TODO API call instead of Impl
+    CardUseCase cardUseCase;
 
     private Card card1;
     private Card card2;
@@ -42,7 +45,7 @@ class CardUseCaseImplTest {
     @Test
     void testGetAllCards() {
         // [GIVEN]
-        // im SetUp
+        // in SetUp
 
         // [WHEN]
         List<Card> result = cardUseCase.getAllCards();
@@ -54,7 +57,7 @@ class CardUseCaseImplTest {
     @Test
     void testGetAllLabels() {
         // [GIVEN]
-        // im SetUp
+        // in SetUp
 
         // [WHEN]
         List<Label> result = cardUseCase.getAllLabels();
@@ -64,9 +67,9 @@ class CardUseCaseImplTest {
     }
 
     @Test
-    void testGetCardById_Success() {
+    void testGetCardById_Success() throws CardNotFoundException {
         // [GIVEN]
-        // im SetUp
+        // in SetUp
 
         // [WHEN]
         Card result = cardUseCase.findCardById(card1.getId());
@@ -74,6 +77,17 @@ class CardUseCaseImplTest {
         // [THEN]
         assertThat(result).extracting(Card::getId).isEqualTo(card1.getId());
     }
+
+    @Test
+    void testGetCardById_Fail() {
+        // [GIVEN]
+        // in SetUp
+
+        // [WHEN]
+        // [THEN]
+        assertThatExceptionOfType(CardNotFoundException.class).isThrownBy(() -> cardUseCase.findCardById(0L));
+    }
+
 
     @AfterEach
     public void tearDown() {
