@@ -1,16 +1,25 @@
 ## **CRUD Kanban Board Web Application Demo**
 
+**How to run the project:**
+
+Start Backend: Run src\main\java\com\example\spring_react_auth_crud_demo\SpringReactAuthCrudDemoApplication.java
+
+Start Frontend: Go to frontend-react\ and type in console `npm start` (Node.js >= v14.0.0 and npm >= 5.6 are needed)
+
 **What is used:**
 - Spring boot 2.7.2 on Java 17 (Backend)
 - React (Frontend)
 
-**Dependencies:**
+**Backend dependencies:**
 - Rest Repositories (Exposing Spring Data repositories over REST via Spring Data REST)
 - 
 [//]: # (- Thymeleaf A modern server-side Java template engine)
 - JPA (Persist data in SQL stores with Java persistence API using Spring Data and Hibernate)
 - H2 Database (Fast in-memory database)
 - Assertj (For convenient tests)
+
+**Frontend dependencies:**
+- Bootstrap (`npm install react-bootstrap bootstrap`)
 
 **Additional Tools:**
 - Maven 3.8.6
