@@ -39,10 +39,10 @@ public interface CardUseCase {
     /**
      * Deletes the card with the given ID.
      *
-     * @param id             the card's ID; must be the ID of an existing card
+     * @param id             the card's technical ID; must be the ID of an existing card
      * @throws CardNotFoundException in case the card could not be found
      */
-    void deleteCardById(long id) throws CardNotFoundException;
+    void deleteCardById(Long id) throws CardNotFoundException;
 
 
     /**

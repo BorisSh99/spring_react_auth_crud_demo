@@ -1,9 +1,7 @@
 package com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.repo;
 
-import com.example.spring_react_auth_crud_demo.SpringReactAuthCrudDemoApplication;
 import com.example.spring_react_auth_crud_demo.cardboard.common.api.datatype.Label;
 import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.entity.Card;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +12,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest(classes = SpringReactAuthCrudDemoApplication.class)
+@SpringBootTest
 public class CardRepositoryTest {
 
     @Autowired
@@ -30,6 +28,7 @@ public class CardRepositoryTest {
 
     @BeforeEach
     public void setUp() {
+        cardRepository.deleteAll();
 
         label1 = new Label("Label1");
         label2 = new Label("Label2");
@@ -87,10 +86,10 @@ public class CardRepositoryTest {
         assertThat(result).containsExactly(label1, label2);
     }
 
-    @AfterEach
-    public void tearDown() {
-        cardRepository.deleteAll();
-    }
+//    @AfterEach
+//    public void tearDown() {
+//        cardRepository.deleteAll();
+//    }
 
 }
 

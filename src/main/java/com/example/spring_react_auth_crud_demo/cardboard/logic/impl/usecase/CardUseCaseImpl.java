@@ -15,16 +15,26 @@ import java.util.List;
 @Component
 public class CardUseCaseImpl implements CardUseCase {
 
-    private final CardRepository cardRepo;
+    private final CardRepository cardRepository;
 
     @Autowired
-    public CardUseCaseImpl(CardRepository cardRepo) {
-        this.cardRepo = cardRepo;
+    public CardUseCaseImpl(CardRepository cardRepository) {
+        this.cardRepository = cardRepository;
+
+        //MOCK DATA
+        Label label1 = new Label("Label1");
+        Label label2 = new Label("Label2");
+        Label label3 = new Label("Label3");
+
+        this.cardRepository.save(new Card("Title1", "Description1", label1, LocalDate.of(2022, 8, 16)));
+        this.cardRepository.save(new Card("Title2", "Description2", label1, LocalDate.of(2022, 4, 5)));
+        this.cardRepository.save(new Card("Title3", "Description3", label2, LocalDate.of(2022, 3, 4)));
+
     }
 
     @Override
     public List<Card> getAllCards() {
-        return cardRepo.findAll();
+        return cardRepository.findAll();
     }
 
     @Override
@@ -32,7 +42,7 @@ public class CardUseCaseImpl implements CardUseCase {
         // check preconditions
         Assert.notNull(id, "Parameter 'id' must not be null");
 
-        return cardRepo.findById(id).orElseThrow(() -> new CardNotFoundException(id));
+        return cardRepository.findById(id).orElseThrow(() -> new CardNotFoundException(id));
     }
 
     @Override
@@ -46,27 +56,27 @@ public class CardUseCaseImpl implements CardUseCase {
         Card card = new Card(title, description, label, dueDate);
 
         // store entity in DB
-        return cardRepo.save(card);
+        return cardRepository.save(card);
     }
 
     @Override
-    public void deleteCardById(long id) throws CardNotFoundException {
+    public void deleteCardById(Long id) throws CardNotFoundException {
         // check preconditions
         // make sure the card to be deleted exists (throw exception if not) and also load the card
         Card card = findCardById(id);
 
         // delete object from DB
-        cardRepo.delete(card);
+        cardRepository.delete(card);
     }
 
     @Override
     public void deleteAll() {
-        cardRepo.deleteAll();
+        cardRepository.deleteAll();
     }
 
     @Override
     public List<Label> getAllLabels() {
-        return cardRepo.findAllLabels();
+        return cardRepository.findAllLabels();
     }
 
 }
