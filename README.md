@@ -4,7 +4,7 @@
 
 Start Backend: Run src\main\java\com\example\spring_react_auth_crud_demo\SpringReactAuthCrudDemoApplication.java
 
-Start Frontend: Go to frontend-react\ and type in console `npm start` (Node.js >= v14.0.0 and npm >= 5.6 are needed)
+Start Frontend: Go to frontend-react\ and type in console `npm install` to install all needed dependencies and then type `npm start` (Node.js >= v14.0.0 and npm >= 5.6 are needed)
 
 **What is used:**
 - Spring boot 2.7.2 on Java 17 (Backend)
