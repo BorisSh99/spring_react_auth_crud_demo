@@ -6,13 +6,13 @@ import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.entity.C
 import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.repo.CardRepository;
 import com.example.spring_react_auth_crud_demo.cardboard.logic.api.usecase.CardUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import java.time.LocalDate;
 import java.util.List;
 
-@Component
+@Service
 public class CardUseCaseImpl implements CardUseCase {
 
     private final CardRepository cardRepository;

@@ -1,32 +1,37 @@
 import {Component} from "react";
+import {Nav, Navbar} from "react-bootstrap";
 
 class HeaderComponent extends Component {
     constructor(props) {
-        super(props)
+        super(props);
 
-        this.state = {
-
-        }
+        this.state = {};
     }
 
     render() {
         return (
-            <div className="container">
-                <header className="d-flex justify-content-center py-3">
-                    <ul className="nav nav-pills">
-                        <li className="nav-item"><a href="#" className="nav-link active" aria-current="page">CARDBOARD</a></li>
-                        <li className="nav-item"><a href="#" className="nav-link">Features</a></li>
-                        <li className="nav-item"><a href="#" className="nav-link">Pricing</a></li>
-                        <li className="nav-item"><a href="#" className="nav-link">FAQs</a></li>
-                        <li className="nav-item"><a href="#" className="nav-link">About</a></li>
-                    </ul>
-                </header>
+            <div className="container w-100">
+                <Navbar className="d-flex py-3 align-content-center">
+                    <Navbar.Brand>Kanban Board</Navbar.Brand>
+                    <Navbar.Collapse className="">
+                        <Nav className="me-auto">
+                            {/*<Link
+                                className="link-secondary text-decoration-none ButtonMarginRight"
+                                to="/cards"
+                            >
+                                <button type="button" className="btn btn-dark">
+                                    CARDS
+                                </button>
+                            </Link>*/}
+                        </Nav>
+
+                    </Navbar.Collapse>
+                </Navbar>
+                <hr className="m-0 p-0 mb-3" />
             </div>
-        )
-
+        );
     }
-
-
 }
 
-export default HeaderComponent
+export default HeaderComponent;
+

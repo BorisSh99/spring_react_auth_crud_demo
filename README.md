@@ -20,6 +20,7 @@ Start Frontend: Go to frontend-react\ and type in console `npm install` to insta
 
 **Frontend dependencies:**
 - Bootstrap (`npm install react-bootstrap bootstrap`)
+- Axios (`npm install axios`)
 
 **Additional Tools:**
 - Maven 3.8.6
@@ -32,3 +33,6 @@ Start Frontend: Go to frontend-react\ and type in console `npm install` to insta
 
 **Architecture/Package structure:**
 ![Alt text](package_structure.PNG)
+
+Presentation -> Business -> Persistence
+Facade -> Logic -> DataAccess

@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/api/cardboard")
+@CrossOrigin
 public class CardFacadeImpl implements CardFacade {
 
     private final CardUseCase cardUseCase;
