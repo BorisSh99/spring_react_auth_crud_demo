@@ -3,7 +3,7 @@ package com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.repo;
 import java.util.List;
 import java.util.Optional;
 
-import com.example.spring_react_auth_crud_demo.cardboard.common.api.datatype.Label;
+import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.entity.Label;
 import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.entity.Card;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

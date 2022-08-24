@@ -1,6 +1,6 @@
 package com.example.spring_react_auth_crud_demo.cardboard.logic.api.usecase;
 
-import com.example.spring_react_auth_crud_demo.cardboard.common.api.datatype.Label;
+import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.entity.Label;
 import com.example.spring_react_auth_crud_demo.cardboard.common.api.exception.CardNotFoundException;
 import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.entity.Card;
 

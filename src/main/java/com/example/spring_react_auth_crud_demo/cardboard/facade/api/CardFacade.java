@@ -1,8 +1,10 @@
 package com.example.spring_react_auth_crud_demo.cardboard.facade.api;
 
-import com.example.spring_react_auth_crud_demo.cardboard.common.api.datatype.Label;
+import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.entity.Label;
 import com.example.spring_react_auth_crud_demo.cardboard.common.api.exception.CardNotFoundException;
 import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.entity.Card;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -45,5 +47,9 @@ public interface CardFacade {
      * @return a list of labels
      */
     List<Label> getLabels();
+
+    Label getLabelByName(String name);
+    Label createLabel(Label label);
+    void deleteLabelByName(String name);
 
 }

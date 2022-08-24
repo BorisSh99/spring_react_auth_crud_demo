@@ -1,12 +1,12 @@
 package com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.entity;
 
-import com.example.spring_react_auth_crud_demo.cardboard.common.api.datatype.Label;
+import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.entity.Label;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
+// TODO проверить update
 @Entity
 public class Card {
 
@@ -16,6 +16,10 @@ public class Card {
 
     private String title;
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name="label_id", nullable=false)
+    @JsonIgnore
     private Label label;
     private LocalDate dueDate;
 
@@ -26,6 +30,8 @@ public class Card {
         this.description = description;
         this.label = label;
         this.dueDate = dueDate;
+
+        label.addCard(this);
     }
 
     public Long getId() {

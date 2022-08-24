@@ -1,6 +1,6 @@
 package com.example.spring_react_auth_crud_demo.cardboard.logic.impl.usecase;
 
-import com.example.spring_react_auth_crud_demo.cardboard.common.api.datatype.Label;
+import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.entity.Label;
 import com.example.spring_react_auth_crud_demo.cardboard.common.api.exception.CardNotFoundException;
 import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.entity.Card;
 import com.example.spring_react_auth_crud_demo.cardboard.logic.api.usecase.CardUseCase;
@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 @SpringBootTest
-class CardUseCaseImplTest {
+class CardUseCaseImplTest { //TODO rewrite tests
 
     @Autowired
     CardUseCase cardUseCase;

@@ -1,6 +1,6 @@
 package com.example.spring_react_auth_crud_demo.cardboard.logic.impl.usecase;
 
-import com.example.spring_react_auth_crud_demo.cardboard.common.api.datatype.Label;
+import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.entity.Label;
 import com.example.spring_react_auth_crud_demo.cardboard.common.api.exception.CardNotFoundException;
 import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.entity.Card;
 import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.repo.CardRepository;
@@ -21,14 +21,14 @@ public class CardUseCaseImpl implements CardUseCase {
     public CardUseCaseImpl(CardRepository cardRepository) {
         this.cardRepository = cardRepository;
 
-        //MOCK DATA
-        Label label1 = new Label("Label1");
-        Label label2 = new Label("Label2");
-        Label label3 = new Label("Label3");
-
-        this.cardRepository.save(new Card("Title1", "Description1", label1, LocalDate.of(2022, 8, 16)));
-        this.cardRepository.save(new Card("Title2", "Description2", label1, LocalDate.of(2022, 4, 5)));
-        this.cardRepository.save(new Card("Title3", "Description3", label2, LocalDate.of(2022, 3, 4)));
+//        //MOCK DATA
+//        Label label1 = new Label("Label1");
+//        Label label2 = new Label("Label2");
+//        Label label3 = new Label("Label3");
+//
+//        this.cardRepository.save(new Card("Title1", "Description1", label1, LocalDate.of(2022, 8, 16)));
+//        this.cardRepository.save(new Card("Title2", "Description2", label1, LocalDate.of(2022, 4, 5)));
+//        this.cardRepository.save(new Card("Title3", "Description3", label2, LocalDate.of(2022, 3, 4)));
 
     }
 

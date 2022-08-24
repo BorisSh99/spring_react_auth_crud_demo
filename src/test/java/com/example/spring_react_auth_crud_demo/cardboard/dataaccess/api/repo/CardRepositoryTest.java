@@ -1,6 +1,6 @@
 package com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.repo;
 
-import com.example.spring_react_auth_crud_demo.cardboard.common.api.datatype.Label;
+import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.entity.Label;
 import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.entity.Card;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +13,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-public class CardRepositoryTest {
+public class CardRepositoryTest { //TODO rewrite tests
 
     @Autowired
     private CardRepository cardRepository;
