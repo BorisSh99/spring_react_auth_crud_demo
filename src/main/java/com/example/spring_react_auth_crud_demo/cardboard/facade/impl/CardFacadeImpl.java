@@ -30,11 +30,25 @@ public class CardFacadeImpl implements CardFacade{
         this.labelUseCase.createLabel("Label1");
         this.labelUseCase.createLabel("Label2");
         this.labelUseCase.createLabel("Label3");
+        this.labelUseCase.createLabel("Label4");
+        this.labelUseCase.createLabel("Label5");
+        this.labelUseCase.createLabel("Label6");
+        this.labelUseCase.createLabel("Label7");
+        this.labelUseCase.createLabel("Label8");
+        this.labelUseCase.createLabel("Label9");
+        this.labelUseCase.createLabel("Label10");
 
         this.cardUseCase.createCard("Title1", "Description1", labelUseCase.findLabelByName("Label1"), LocalDate.of(2022, 8, 16));
         this.cardUseCase.createCard("Title2", "Description2", labelUseCase.findLabelByName("Label1"), LocalDate.of(2022, 4, 5));
-        this.cardUseCase.createCard("Title3", "Description3", labelUseCase.findLabelByName("Label2"), LocalDate.of(2022, 3, 4));
 
+        this.cardUseCase.createCard("Title3", "Description3", labelUseCase.findLabelByName("Label2"), LocalDate.of(2022, 3, 4));
+        this.cardUseCase.createCard("Title4", "Description4", labelUseCase.findLabelByName("Label2"), LocalDate.of(2022, 3, 4));
+
+        this.cardUseCase.createCard("Title5", "Description5", labelUseCase.findLabelByName("Label3"), LocalDate.of(2022, 3, 4));
+        this.cardUseCase.createCard("Title6", "Description6", labelUseCase.findLabelByName("Label3"), LocalDate.of(2022, 3, 4));
+
+        this.cardUseCase.createCard("Title7", "Description7", labelUseCase.findLabelByName("Label4"), LocalDate.of(2022, 3, 4));
+        this.cardUseCase.createCard("Title8", "Description8", labelUseCase.findLabelByName("Label5"), LocalDate.of(2022, 3, 4));
     }
 
     @GetMapping

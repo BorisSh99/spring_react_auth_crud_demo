@@ -8,6 +8,10 @@ class CardService {
         return axios.get(CARD_API_BASE_URL);
     }
 
+    getLabels(){
+        return axios.get(CARD_API_BASE_URL + "/labels");
+    }
+
 }
 
 export default new CardService()
