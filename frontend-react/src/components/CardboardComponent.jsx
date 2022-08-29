@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import CardService from "../services/CardService";
 
-function CardboardComponent() { // TODO unique id for label elements
+function CardboardComponent() {
     const [state, setState] = useState({labels: []})
 
     useEffect(
@@ -16,7 +16,7 @@ function CardboardComponent() { // TODO unique id for label elements
     return (
         state.labels.map(
             label =>
-                <table className="table">
+                <table className="table" key={label.id}>
                     <thead className="thead-dark">
                     <tr>
                         <th scope="col">{label.name}</th>
@@ -35,7 +35,7 @@ function CardboardComponent() { // TODO unique id for label elements
                             </thead>
                             {
                                 label.cardList.map(card =>
-                                    <tbody>
+                                    <tbody key={card.id}>
                                     <tr>
                                         <td>{card.title}</td>
                                         <td>{card.description}</td>
