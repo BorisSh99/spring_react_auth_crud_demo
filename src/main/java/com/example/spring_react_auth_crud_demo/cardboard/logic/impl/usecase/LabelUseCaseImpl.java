@@ -11,9 +11,7 @@ import java.util.List;
 @Service
 public class LabelUseCaseImpl implements com.example.spring_react_auth_crud_demo.cardboard.logic.api.usecase.LabelUseCase {
 
-    private LabelRepository labelRepository;
-
-    public LabelUseCaseImpl() {}
+    private final LabelRepository labelRepository;
 
     @Autowired
     public LabelUseCaseImpl(LabelRepository labelRepository) {
@@ -38,7 +36,8 @@ public class LabelUseCaseImpl implements com.example.spring_react_auth_crud_demo
         // check preconditions
         Assert.notNull(name, "Parameter 'name' must not be null");
 
-        return labelRepository.findByName(name).orElse(null);
+        // create new label if it is absent
+        return labelRepository.findByName(name).orElseGet(() -> labelRepository.save(new Label(name)));
     }
 
     @Override
@@ -46,7 +45,7 @@ public class LabelUseCaseImpl implements com.example.spring_react_auth_crud_demo
         // check preconditions
         Assert.notNull(name, "Parameter 'name' must not be null!");
 
-        // create a new card as plain Java object
+        // create a new label as plain Java object
         Label label = new Label(name);
 
         // store entity in DB

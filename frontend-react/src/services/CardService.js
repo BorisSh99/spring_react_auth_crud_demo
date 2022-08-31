@@ -12,6 +12,14 @@ class CardService {
         return axios.get(CARD_API_BASE_URL + "/labels");
     }
 
+    getLabelNames(){
+        return axios.get(CARD_API_BASE_URL + "/")
+    }
+
+    postCard(cardData){
+        return axios.post(CARD_API_BASE_URL, cardData);
+    }
+
 }
 
 export default new CardService()

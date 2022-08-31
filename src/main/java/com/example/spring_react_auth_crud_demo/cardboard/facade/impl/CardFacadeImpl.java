@@ -1,5 +1,6 @@
 package com.example.spring_react_auth_crud_demo.cardboard.facade.impl;
 
+import com.example.spring_react_auth_crud_demo.cardboard.common.api.datatype.CardData;
 import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.entity.Label;
 import com.example.spring_react_auth_crud_demo.cardboard.common.api.exception.CardNotFoundException;
 import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.entity.Card;
@@ -18,8 +19,8 @@ import java.util.List;
 @CrossOrigin
 public class CardFacadeImpl implements CardFacade{
 
-    private CardUseCase cardUseCase;
-    private LabelUseCase labelUseCase;
+    private final CardUseCase cardUseCase;
+    private final LabelUseCase labelUseCase;
 
     @Autowired
     public CardFacadeImpl(CardUseCase cardUseCase, LabelUseCase labelUseCase) {
@@ -65,11 +66,11 @@ public class CardFacadeImpl implements CardFacade{
 
     @PostMapping
     @Override
-    public Card createCard(@RequestBody Card card) {
+    public Card createCard(@RequestBody CardData cardData) {
         // check preconditions
-        Assert.notNull(card, "Parameter 'card' must not be null!");
+        Assert.notNull(cardData, "Parameter 'card' must not be null!");
 
-        return cardUseCase.createCard(card.getTitle(), card.getDescription(), card.getLabel(), card.getDueDate());
+        return cardUseCase.createCard(cardData.getTitle(), cardData.getDescription(), labelUseCase.findLabelByName(cardData.getLabelName()), LocalDate.parse(cardData.getDueDate()));
     }
 
     @DeleteMapping("/{id}")

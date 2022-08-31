@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Service
-public class CardUseCaseImpl implements CardUseCase {
+public class CardUseCaseImpl implements CardUseCase { //TODO One Service with two repos?
 
     private final CardRepository cardRepository;
 

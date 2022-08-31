@@ -1,5 +1,6 @@
 package com.example.spring_react_auth_crud_demo.cardboard.facade.api;
 
+import com.example.spring_react_auth_crud_demo.cardboard.common.api.datatype.CardData;
 import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.entity.Label;
 import com.example.spring_react_auth_crud_demo.cardboard.common.api.exception.CardNotFoundException;
 import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.entity.Card;
@@ -28,10 +29,10 @@ public interface CardFacade {
     /**
      * Creates a card with the given Card object.
      *
-     * @param card the card to be created; must not be null
+     * @param cardData the card to be created; must not be null
      * @return the created card
      */
-    Card createCard(Card card);
+    Card createCard(CardData cardData);
 
     /**
      * Deletes the card with the given ID.
