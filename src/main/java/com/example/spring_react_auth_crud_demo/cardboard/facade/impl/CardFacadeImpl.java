@@ -68,7 +68,7 @@ public class CardFacadeImpl implements CardFacade{
     @Override
     public Card createCard(@RequestBody CardData cardData) {
         // check preconditions
-        Assert.notNull(cardData, "Parameter 'card' must not be null!");
+        Assert.notNull(cardData, "Parameter 'cardData' must not be null!");
 
         return cardUseCase.createCard(cardData.getTitle(), cardData.getDescription(), labelUseCase.findLabelByName(cardData.getLabelName()), LocalDate.parse(cardData.getDueDate()));
     }

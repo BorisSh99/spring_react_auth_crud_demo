@@ -36,7 +36,7 @@ public class LabelUseCaseImpl implements com.example.spring_react_auth_crud_demo
         // check preconditions
         Assert.notNull(name, "Parameter 'name' must not be null");
 
-        // create new label if it is absent
+        // create new label if it doesn't exist
         return labelRepository.findByName(name).orElseGet(() -> labelRepository.save(new Label(name)));
     }
 

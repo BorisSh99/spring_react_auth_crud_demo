@@ -1,6 +1,9 @@
 import {useEffect, useState} from "react";
-import {useForm} from "react-hook-form";
+import {Controller, useForm} from "react-hook-form";
+import DatePicker from "react-datepicker";
 import CardService from "../services/CardService";
+
+import 'react-datepicker/dist/react-datepicker.css';
 
 function CreateCardComponent() {
     const [state, setState] = useState({
@@ -14,6 +17,7 @@ function CreateCardComponent() {
     })
 
     const {
+        control,
         register,
         handleSubmit,
         watch,
@@ -31,7 +35,7 @@ function CreateCardComponent() {
 
     const onSubmit = (data) => {
         console.log(data);
-        CardService.postCard(JSON.stringify(data))
+        // CardService.postCard(JSON.stringify(data))
     };
 
 
@@ -44,6 +48,20 @@ function CreateCardComponent() {
             <input placeholder={"Description"} {...register("description", { required: true })} />
             {/* errors will return when field validation fails  */}
             <input placeholder={"Label"} {...register("label", { required: true })} />
+            {/*<input placeholder={"Due date"} {...register("dueDate", { required: true })} />*/}
+            <Controller
+                control={control}
+                name="dueDate"
+                render={({ field }) => (
+                    <DatePicker
+                        onChange={(date) => field.onChange(date)}
+                        selected={field.value}
+                        dateFormat="yyyy-MM-dd"
+                        placeholderText="YYYY-MM-DD"
+                    />
+                )}
+            />
+
 
             {errors.exampleRequired && <p>This field is required</p>}
 

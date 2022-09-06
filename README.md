@@ -23,6 +23,7 @@ Start Frontend: Go to frontend-react\ and type in console `npm install` to insta
 - Axios (`npm install axios`)
 - react-hook-form (`npm install react-hook-form`)
 - react-router-dom (`npm install react-router-dom`)
+- react-datepicker (`npm install react-datepicker`)
 
 **Additional Tools:**
 - Maven 3.8.6
