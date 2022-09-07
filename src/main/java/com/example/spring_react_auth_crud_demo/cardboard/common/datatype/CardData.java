@@ -40,4 +40,14 @@ public class CardData {
     public String getDueDate() {
         return dueDate;
     }
+
+    @Override
+    public String toString() {
+        return "CardData{" +
+                "title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", labelName='" + labelName + '\'' +
+                ", dueDate='" + dueDate + '\'' +
+                '}';
+    }
 }

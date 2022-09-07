@@ -17,7 +17,11 @@ class CardService {
     }
 
     postCard(cardData){
-        return axios.post(CARD_API_BASE_URL, cardData);
+        return axios.post(CARD_API_BASE_URL, cardData, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
     }
 
 }

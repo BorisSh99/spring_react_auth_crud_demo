@@ -2,6 +2,7 @@ package com.example.spring_react_auth_crud_demo.cardboard.logic.usecase;
 
 import com.example.spring_react_auth_crud_demo.cardboard.common.datatype.CardData;
 import com.example.spring_react_auth_crud_demo.cardboard.common.exception.CardNotFoundException;
+import com.example.spring_react_auth_crud_demo.cardboard.common.exception.LabelNotFoundException;
 import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.entity.Card;
 import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.entity.Label;
 import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.repository.CardRepository;
@@ -41,6 +42,7 @@ public class CardboardUseCase {
         Assert.notNull(cardData, "Parameter 'cardData' must not be null!");
 
         // create a new card as plain Java object
+//        System.err.println(cardData);
         Card card = new Card(cardData.getTitle(), cardData.getDescription(), findLabelByName(cardData.getLabelName()), LocalDate.parse(cardData.getDueDate()));
 
         // store entity in DB
@@ -86,16 +88,16 @@ public class CardboardUseCase {
         return labelRepository.findAll();
     }
 
-    public Label findLabelById(Long id){
+    public Label findLabelById(Long id) throws LabelNotFoundException {
         // check preconditions
         Assert.notNull(id, "Parameter 'id' must not be null");
 
-        return labelRepository.findById(id).orElse(null);
+        return labelRepository.findById(id).orElseThrow(() -> new LabelNotFoundException(id));
     }
 
     public Label findLabelByName(String name){
         // check preconditions
-        Assert.notNull(name, "Parameter 'name' must not be null");
+//        Assert.notNull(name, "Parameter 'name' must not be null");
 
         // create new label if it doesn't exist
         return labelRepository.findByName(name).orElseGet(() -> labelRepository.save(new Label(name)));
@@ -112,7 +114,7 @@ public class CardboardUseCase {
         return labelRepository.save(label);
     }
 
-    public void deleteLabelById(Long id) {
+    public void deleteLabelById(Long id) throws LabelNotFoundException {
         // check preconditions
         // make sure the label to be deleted exists (throw exception if not) and also load the label
         Label label = findLabelById(id);

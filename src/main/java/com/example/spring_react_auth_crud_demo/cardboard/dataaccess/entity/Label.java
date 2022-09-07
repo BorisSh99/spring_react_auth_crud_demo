@@ -6,7 +6,7 @@ import java.util.List;
 
 //@Embeddable  // indicates that the type's attributes can be stored in columns of the owning entity's table
 @Entity
-public class Label { //TODO LabelNotFoundException
+public class Label {
 
     @Id
     @GeneratedValue
@@ -15,7 +15,7 @@ public class Label { //TODO LabelNotFoundException
     @Column(unique = true)
     private String name;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "label", cascade = CascadeType.REMOVE)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "label", cascade = CascadeType.REMOVE) //By removing label card will also be removed
     private List<Card> cardList;
 
     public Label() {}
