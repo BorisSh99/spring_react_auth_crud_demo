@@ -1,4 +1,4 @@
-package com.example.spring_react_auth_crud_demo.cardboard.common.api.datatype;
+package com.example.spring_react_auth_crud_demo.cardboard.common.datatype;
 
 import java.time.LocalDate;
 
@@ -8,6 +8,8 @@ public class CardData {
     private String description;
     private String labelName;
     private String dueDate;
+
+    public CardData() {}
 
     public CardData(String title, String description, String labelName, String dueDate) {
         this.title = title;
