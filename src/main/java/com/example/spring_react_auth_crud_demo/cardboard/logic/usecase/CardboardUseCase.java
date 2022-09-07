@@ -1,5 +1,6 @@
 package com.example.spring_react_auth_crud_demo.cardboard.logic.usecase;
 
+import com.example.spring_react_auth_crud_demo.cardboard.common.datatype.CardData;
 import com.example.spring_react_auth_crud_demo.cardboard.common.exception.CardNotFoundException;
 import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.entity.Card;
 import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.entity.Label;
@@ -35,16 +36,30 @@ public class CardboardUseCase {
         return cardRepository.findById(id).orElseThrow(() -> new CardNotFoundException(id));
     }
 
-    public Card createCard(String title, String description, Label label, LocalDate dueDate) {
+    public Card createCard(CardData cardData) {
         // check preconditions
-        Assert.notNull(title, "Parameter 'title' must not be null!");
-        Assert.notNull(description, "Parameter 'description' must contain text!");
-        Assert.notNull(label, "Parameter 'label' must not be null!");
+        Assert.notNull(cardData, "Parameter 'cardData' must not be null!");
 
         // create a new card as plain Java object
-        Card card = new Card(title, description, label, dueDate);
+        Card card = new Card(cardData.getTitle(), cardData.getDescription(), findLabelByName(cardData.getLabelName()), LocalDate.parse(cardData.getDueDate()));
 
         // store entity in DB
+        return cardRepository.save(card);
+    }
+
+    public Card updateCard(Long id, CardData cardData) throws CardNotFoundException {
+        // check preconditions
+        Assert.notNull(cardData, "Parameter 'cardData' must not be null!");
+
+        // make sure the card to be updated exists (throw exception if not)
+        Card card = findCardById(id);
+
+        card.setTitle(cardData.getTitle());
+        card.setDescription(cardData.getDescription());
+        card.setDueDate(LocalDate.parse(cardData.getDueDate()));
+        card.setLabel(findLabelByName(cardData.getLabelName()));
+
+        // store entity in DB (from then on: entity object is observed by Hibernate within current transaction)
         return cardRepository.save(card);
     }
 

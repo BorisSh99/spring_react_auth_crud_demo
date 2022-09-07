@@ -30,17 +30,17 @@ public class CardboardFacade {
         this.cardboardUseCase.createLabel("Label5");
         this.cardboardUseCase.createLabel("Label6");
 
-        this.cardboardUseCase.createCard("Title1", "Description1", cardboardUseCase.findLabelByName("Label1"), LocalDate.of(2022, 8, 16));
-        this.cardboardUseCase.createCard("Title2", "Description2", cardboardUseCase.findLabelByName("Label1"), LocalDate.of(2022, 4, 5));
+        this.cardboardUseCase.createCard(new CardData("Title1", "Description1", "Label1", "2022-08-16"));
+        this.cardboardUseCase.createCard(new CardData("Title2", "Description2", "Label1", "2022-04-05"));
 
-        this.cardboardUseCase.createCard("Title3", "Description3", cardboardUseCase.findLabelByName("Label2"), LocalDate.of(2022, 3, 4));
-        this.cardboardUseCase.createCard("Title4", "Description4", cardboardUseCase.findLabelByName("Label2"), LocalDate.of(2022, 3, 4));
+        this.cardboardUseCase.createCard(new CardData("Title3", "Description3", "Label2", "2022-03-04"));
+        this.cardboardUseCase.createCard(new CardData("Title4", "Description4", "Label2", "2022-03-04"));
 
-        this.cardboardUseCase.createCard("Title5", "Description5", cardboardUseCase.findLabelByName("Label3"), LocalDate.of(2022, 3, 4));
-        this.cardboardUseCase.createCard("Title6", "Description6", cardboardUseCase.findLabelByName("Label3"), LocalDate.of(2022, 3, 4));
+        this.cardboardUseCase.createCard(new CardData("Title5", "Description5", "Label3", "2022-03-04"));
+        this.cardboardUseCase.createCard(new CardData("Title6", "Description6", "Label3", "2022-03-04"));
 
-        this.cardboardUseCase.createCard("Title7", "Description7", cardboardUseCase.findLabelByName("Label4"), LocalDate.of(2022, 3, 4));
-        this.cardboardUseCase.createCard("Title8", "Description8", cardboardUseCase.findLabelByName("Label5"), LocalDate.of(2022, 3, 4));
+        this.cardboardUseCase.createCard(new CardData("Title7", "Description7", "Label4", "2022-03-04"));
+        this.cardboardUseCase.createCard(new CardData("Title8", "Description8", "Label5", "2022-03-04"));
     }
 
     @GetMapping
@@ -55,7 +55,12 @@ public class CardboardFacade {
 
     @PostMapping
     public Card createCard(@RequestBody CardData cardData) {
-        return cardboardUseCase.createCard(cardData.getTitle(), cardData.getDescription(), cardboardUseCase.findLabelByName(cardData.getLabelName()), LocalDate.parse(cardData.getDueDate()));
+        return cardboardUseCase.createCard(cardData);
+    }
+
+    @PutMapping("/{id}")
+    public Card updateCard(@PathVariable Long id, @RequestBody CardData cardData) throws CardNotFoundException {
+        return cardboardUseCase.updateCard(id, cardData);
     }
 
     @DeleteMapping("/{id}")
