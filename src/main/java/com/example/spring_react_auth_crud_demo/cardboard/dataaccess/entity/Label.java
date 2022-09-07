@@ -1,4 +1,4 @@
-package com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.entity;
+package com.example.spring_react_auth_crud_demo.cardboard.dataaccess.entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -54,13 +54,13 @@ public class Label { //TODO LabelNotFoundException
         this.cardList = cardList;
     }
 
-    public void addCard(Card card) {
-        cardList.add(card);
-    }
-
-    public void removeCard(Card card) {
-        cardList.remove(card);
-    }
+//    public void addCard(Card card) {
+//        cardList.add(card);
+//    }
+//
+//    public void removeCard(Card card) {
+//        cardList.remove(card);
+//    }
 
 //    @Override
 //    public boolean equals(Object obj) {

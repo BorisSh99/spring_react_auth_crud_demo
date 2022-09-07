@@ -1,12 +1,10 @@
-package com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.entity;
+package com.example.spring_react_auth_crud_demo.cardboard.dataaccess.entity;
 
-import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.api.entity.Label;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
-// TODO проверить update
 @Entity
 public class Card {
 
@@ -25,13 +23,11 @@ public class Card {
 
     public Card() {}
 
-    public Card(String title, String description, Label label, LocalDate dueDate) {
+    public Card(String title, String description, Label label, LocalDate dueDate) { //TODO deleted addCard
         this.title = title;
         this.description = description;
         this.label = label;
         this.dueDate = dueDate;
-
-        label.addCard(this);
     }
 
     public Long getId() {

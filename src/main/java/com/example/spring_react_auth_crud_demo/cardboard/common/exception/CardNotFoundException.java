@@ -1,4 +1,4 @@
-package com.example.spring_react_auth_crud_demo.cardboard.common.api.exception;
+package com.example.spring_react_auth_crud_demo.cardboard.common.exception;
 
 public class CardNotFoundException extends Exception {
 
