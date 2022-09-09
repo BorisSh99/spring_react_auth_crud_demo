@@ -12,8 +12,6 @@ Start Frontend: Go to frontend-react\ and type in console `npm install` to insta
 
 **Backend dependencies:**
 - Rest Repositories (Exposing Spring Data repositories over REST via Spring Data REST)
-- 
-[//]: # (- Thymeleaf A modern server-side Java template engine)
 - JPA (Persist data in SQL stores with Java persistence API using Spring Data and Hibernate)
 - H2 Database (Fast in-memory database)
 - Assertj (For convenient tests)

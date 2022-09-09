@@ -10,7 +10,7 @@ function App() {
       <div>
           <BrowserRouter>
               <HeaderComponent />
-              <div className="container">
+              <div className="container-fluid">
                   <Routes>
                       <Route path="/" element={<CardboardComponent />} />
                       <Route path="new" element={<CreateCardComponent />} />

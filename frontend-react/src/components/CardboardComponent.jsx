@@ -1,5 +1,7 @@
 import {useEffect, useState} from "react";
 import CardService from "../services/CardService";
+import {Card, ListGroup} from "react-bootstrap";
+import './CardboardComponent.css';
 
 function CardboardComponent() {
     const [state, setState] = useState({labels: []})
@@ -14,41 +16,40 @@ function CardboardComponent() {
     )
 
     return (
-        state.labels.map(
-            label =>
-                <table className="table" key={label.id}>
-                    <thead className="thead-dark">
-                    <tr>
-                        <th scope="col">{label.name}</th>
-                    </tr>
-                    </thead>
+        <div className={"test"}>
+            <ListGroup horizontal={true}>
+                {
+                    state.labels.map(
+                        label =>
+                            <ListGroup.Item key={label.id}>
+                                {label.name}
+                                <ListGroup>
+                                    {
+                                        label.cardList.map(card =>
 
-                    <tbody>
-                    <ul className="list-group">
-                        <table className="table table-borderless">
-                            <thead>
-                            <tr>
-                                <th scope="col">Title</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">DueDate</th>
-                            </tr>
-                            </thead>
-                            {
-                                label.cardList.map(card =>
-                                    <tbody key={card.id}>
-                                    <tr>
-                                        <td>{card.title}</td>
-                                        <td>{card.description}</td>
-                                        <td>{card.dueDate}</td>
-                                    </tr>
-                                    </tbody>
-                                )
-                            }
-                        </table>
-                    </ul>
-                    </tbody>
-                </table>
-        )
+                                            <Card key={card.id} style={{marginTop: '10px'}}>
+                                                <Card.Body>
+                                                    <Card.Title>{card.title}</Card.Title>
+                                                    <Card.Subtitle className="mb-2 text-muted">{card.dueDate}</Card.Subtitle>
+                                                    <Card.Text>
+                                                        {card.description}
+                                                    </Card.Text>
+                                                    <Card.Link href="#">Card Link</Card.Link>
+                                                    <Card.Link href="#">Another Link</Card.Link>
+                                                </Card.Body>
+                                            </Card>
+
+                                        )
+                                    }
+                                </ListGroup>
+                            </ListGroup.Item>
+                    )
+                }
+            </ListGroup>
+        </div>
+
+
+
     );
 }
 
