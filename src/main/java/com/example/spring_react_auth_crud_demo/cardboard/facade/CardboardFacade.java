@@ -30,17 +30,17 @@ public class CardboardFacade {
         this.cardboardUseCase.createLabel("Label5");
         this.cardboardUseCase.createLabel("Label6");
 
-        this.cardboardUseCase.createCard(new CardData("Title1", "Description1", "Label1", "2022-08-16"));
-        this.cardboardUseCase.createCard(new CardData("Title2", "Description2", "Label1", "2022-04-05"));
+        this.cardboardUseCase.createCard(new CardData("Title1", "Description1", "Label1", LocalDate.of(2022, 6, 4)));
+        this.cardboardUseCase.createCard(new CardData("Title2", "Description2", "Label1", LocalDate.of(2022, 6, 4)));
 
-        this.cardboardUseCase.createCard(new CardData("Title3", "Description3", "Label2", "2022-03-04"));
-        this.cardboardUseCase.createCard(new CardData("Title4", "Description4", "Label2", "2022-03-04"));
+        this.cardboardUseCase.createCard(new CardData("Title3", "Description3", "Label2", LocalDate.of(2022, 6, 4)));
+        this.cardboardUseCase.createCard(new CardData("Title4", "Description4", "Label2", LocalDate.of(2022, 6, 4)));
 
-        this.cardboardUseCase.createCard(new CardData("Title5", "Description5", "Label3", "2022-03-04"));
-        this.cardboardUseCase.createCard(new CardData("Title6", "Description6", "Label3", "2022-03-04"));
+        this.cardboardUseCase.createCard(new CardData("Title5", "Description5", "Label3", LocalDate.of(2022, 6, 4)));
+        this.cardboardUseCase.createCard(new CardData("Title6", "Description6", "Label3", LocalDate.of(2022, 6, 4)));
 
-        this.cardboardUseCase.createCard(new CardData("Title7", "Description7", "Label4", "2022-03-04"));
-        this.cardboardUseCase.createCard(new CardData("Title8", "Description8", "Label5", "2022-03-04"));
+        this.cardboardUseCase.createCard(new CardData("Title7", "Description7", "Label4", LocalDate.of(2022, 6, 4)));
+        this.cardboardUseCase.createCard(new CardData("Title8", "Description8", "Label5", LocalDate.of(2022, 6, 4)));
     }
 
     @GetMapping

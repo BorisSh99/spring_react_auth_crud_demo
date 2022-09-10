@@ -1,5 +1,6 @@
 import {Component} from "react";
-import {Nav, Navbar} from "react-bootstrap";
+import {Button, Nav, Navbar} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 class HeaderComponent extends Component {
     constructor(props) {
@@ -15,6 +16,8 @@ class HeaderComponent extends Component {
                     <Navbar.Brand>Kanban Board</Navbar.Brand>
                     <Navbar.Collapse className="">
                         <Nav className="me-auto">
+                            <Link to="/"><Button variant="primary">CARDBOARD</Button></Link>
+                            <Link to="/new"><Button variant="success">NEW CARD</Button></Link>
                             {/*<Link
                                 className="link-secondary text-decoration-none ButtonMarginRight"
                                 to="/cards"

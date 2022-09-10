@@ -43,7 +43,7 @@ public class CardboardUseCase {
 
         // create a new card as plain Java object
 //        System.err.println(cardData);
-        Card card = new Card(cardData.getTitle(), cardData.getDescription(), findLabelByName(cardData.getLabelName()), LocalDate.parse(cardData.getDueDate()));
+        Card card = new Card(cardData.getTitle(), cardData.getDescription(), findLabelByName(cardData.getLabelName()), cardData.getDueDate());
 
         // store entity in DB
         return cardRepository.save(card);
@@ -58,7 +58,7 @@ public class CardboardUseCase {
 
         card.setTitle(cardData.getTitle());
         card.setDescription(cardData.getDescription());
-        card.setDueDate(LocalDate.parse(cardData.getDueDate()));
+        card.setDueDate(cardData.getDueDate());
         card.setLabel(findLabelByName(cardData.getLabelName()));
 
         // store entity in DB (from then on: entity object is observed by Hibernate within current transaction)

@@ -22,12 +22,12 @@ function CardboardComponent() {
                     state.labels.map(
                         label =>
                             <ListGroup.Item key={label.id}>
-                                {label.name}
-                                <ListGroup>
+                                <h3>{label.name}</h3>
+                                <ListGroup > {/*style={{overflowY: 'scroll'}}*/}
                                     {
                                         label.cardList.map(card =>
 
-                                            <Card key={card.id} style={{marginTop: '10px'}}>
+                                            <Card key={card.id} style={{marginTop: '10px',}}>
                                                 <Card.Body>
                                                     <Card.Title>{card.title}</Card.Title>
                                                     <Card.Subtitle className="mb-2 text-muted">{card.dueDate}</Card.Subtitle>

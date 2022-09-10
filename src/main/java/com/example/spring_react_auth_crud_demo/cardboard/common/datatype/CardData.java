@@ -7,22 +7,15 @@ public class CardData {
     private String title;
     private String description;
     private String labelName;
-    private String dueDate;
+    private LocalDate dueDate;
 
     public CardData() {}
 
-    public CardData(String title, String description, String labelName, String dueDate) {
+    public CardData(String title, String description, String labelName, LocalDate dueDate) {
         this.title = title;
         this.description = description;
         this.labelName = labelName;
         this.dueDate = dueDate;
-    }
-
-    public CardData(String title, String description, String labelName) {
-        this.title = title;
-        this.description = description;
-        this.labelName = labelName;
-        this.dueDate = LocalDate.now().toString();
     }
 
     public String getTitle() {
@@ -37,8 +30,24 @@ public class CardData {
         return labelName;
     }
 
-    public String getDueDate() {
+    public LocalDate getDueDate() {
         return dueDate;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setLabelName(String labelName) {
+        this.labelName = labelName;
+    }
+
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate == null ? LocalDate.now() : dueDate;
     }
 
     @Override
