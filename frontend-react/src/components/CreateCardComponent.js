@@ -60,7 +60,7 @@ function CreateCardComponent() { //TODO Errors handling
 
                 <Form.Group className="mb-3" controlId="title">
                     <Form.Label>Title</Form.Label>
-                    <Form.Control type="text" placeholder="Title" value={stateCurrentTitle.currentTitle} onChange={handleTitleChange}  />
+                    <Form.Control type="text" placeholder="Title" value={stateCurrentTitle.currentTitle} onChange={handleTitleChange} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="description">

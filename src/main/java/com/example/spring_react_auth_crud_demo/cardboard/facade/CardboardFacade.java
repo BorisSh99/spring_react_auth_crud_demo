@@ -7,8 +7,10 @@ import com.example.spring_react_auth_crud_demo.cardboard.dataaccess.entity.Label
 import com.example.spring_react_auth_crud_demo.cardboard.logic.usecase.CardboardUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -54,7 +56,15 @@ public class CardboardFacade {
     }
 
     @PostMapping
-    public Card createCard(@RequestBody CardData cardData) {
+    public Card createCard(@Valid @RequestBody CardData cardData, BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+            System.err.println("Validation error");
+            return null;
+        }
+
+        System.err.println("Validation success");
+
         return cardboardUseCase.createCard(cardData);
     }
 

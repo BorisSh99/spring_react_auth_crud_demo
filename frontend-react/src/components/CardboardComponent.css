@@ -5,6 +5,16 @@
     padding: 0 15px;
 }
 
+.cardElem {
+    max-width: 300px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 h3 {
-    text-align: center
+    text-align: center;
+    max-width: 300px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
 }

@@ -19,7 +19,6 @@ Start Frontend: Go to frontend-react\ and type in console `npm install` to insta
 **Frontend dependencies:**
 - Bootstrap (`npm install react-bootstrap bootstrap`)
 - Axios (`npm install axios`)
-- react-hook-form (`npm install react-hook-form`)
 - react-router-dom (`npm install react-router-dom`)
 
 **Additional Tools:**

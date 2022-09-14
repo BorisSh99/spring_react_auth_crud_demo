@@ -1,12 +1,24 @@
 package com.example.spring_react_auth_crud_demo.cardboard.common.datatype;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 public class CardData {
 
+    @NotNull
+    @Size(min=1, max=50)
     private String title;
+
+    @NotNull
+    @Size(max=255) // "" (empty string) is valid
     private String description;
+
+    @NotNull
+    @Size(min=1, max=50)
     private String labelName;
+
+    @NotNull
     private LocalDate dueDate;
 
     public CardData() {}
