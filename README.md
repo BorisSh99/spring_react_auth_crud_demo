@@ -1,5 +1,11 @@
 ## **CRUD Kanban Board Web Application Demo**
 
+**Actual stand:**
+- The app can only be running locally.
+- REST API for CRUD is complete although in the Frontend you can only find the form for creating cards
+- Interface for presenting the cardboard needs to be overwritten
+- Tests in Backend need to be overwritten
+
 **How to run the project:**
 
 Start Backend: Run src\main\java\com\example\spring_react_auth_crud_demo\SpringReactAuthCrudDemoApplication.java
@@ -29,6 +35,3 @@ Start Frontend: Go to frontend-react\ and type in console `npm install` to insta
 **Project Environment:**
 - Project SDK: openjdk-17 (java version "17")
 - Project language level: 17 - Sealed types, always-strict floating-point semantics
-
-**Architecture/Package structure:**
-![Alt text](package_structure.PNG)

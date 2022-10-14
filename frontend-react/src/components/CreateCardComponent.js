@@ -23,15 +23,27 @@ function CreateCardComponent() { //TODO Errors handling
     )
 
     const handleSubmit = async (_event) => {
+
+        validateTitle()
+
         let cardData = {
             title: stateCurrentTitle.currentTitle,
             description: stateCurrentDescription.currentDescription,
             labelName: stateCurrentLabel.currentLabel,
             dueDate: stateCurrentDueDate.currentDueDate
         }
+
         alert(JSON.stringify(cardData))
         await CardService.postCard(cardData) //TODO JSON.stringify
     };
+
+    const validateTitle = () => {
+        const titlePattern = /^\w[\w ]{0,49}$/
+        const titleValue = stateCurrentTitle.currentTitle
+
+
+        alert(titlePattern.test(titleValue))
+    }
 
     const handleTitleChange = (event) => {
         setCurrentTitle({currentTitle: event.target.value})
