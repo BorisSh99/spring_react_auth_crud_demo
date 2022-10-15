@@ -4,6 +4,7 @@
 - The app can only be running locally.
 - REST API for CRUD is complete although in the Frontend you can only find the form for creating cards
 - Interface for presenting the cardboard needs to be overwritten
+- Authentication system is missing
 - Tests in Backend need to be overwritten
 
 **How to run the project:**
