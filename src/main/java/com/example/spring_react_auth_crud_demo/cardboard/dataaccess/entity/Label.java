@@ -62,15 +62,15 @@ public class Label {
 //        cardList.remove(card);
 //    }
 
-//    @Override
-//    public boolean equals(Object obj) {
-//        if (this == obj) return true;  // self check
-//        if (obj == null) return false; // null check
-//        if (this.getClass() != obj.getClass())
-//            return false;              // type check and cast
-//        Label other = (Label) obj;
-//        return this.getName().equals(other.getName());
-//    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;  // self check
+        if (obj == null) return false; // null check
+        if (this.getClass() != obj.getClass())
+            return false;              // type check and cast
+        Label other = (Label) obj;
+        return this.getName().equals(other.getName());
+    }
 
     @Override
     public String toString() {

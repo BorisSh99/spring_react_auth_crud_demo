@@ -34,5 +34,5 @@ Start Frontend: Go to frontend-react\ and type in console `npm install` to insta
 - NVM 1.1.9 (Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions)
 
 **Project Environment:**
-- Project SDK: openjdk-17 (java version "17")
+- Project SDK: jdk-17 (17.0.5)
 - Project language level: 17 - Sealed types, always-strict floating-point semantics
